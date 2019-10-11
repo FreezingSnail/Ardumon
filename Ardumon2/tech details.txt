@@ -1,0 +1,11 @@
+// monster layout
+
+000     00000
+type    monster id
+
+0000    0000    0000    0000
+atk     def     hp      speed
+
+stat calculation
+x^2
+
