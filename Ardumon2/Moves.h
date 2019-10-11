@@ -27,24 +27,29 @@
 
 // 32 moves, 8 types, 4 per type
 
-// Type 000 0
+// Type 000 0 //plain
 
-uint8_t m01 = 0b00 000 001;
+uint8_t m00 = 0b00000001;
 //
-uint8_t m02 = 0b01 000 010;
+uint8_t m01 = 0b01000010;
 //
-uint8_t m03 = 0b10 000 100;
+uint8_t m02 = 0b10000100;
 //
-uint8_t m04 = 0b11 000 101;
+uint8_t m03 = 0b11000101;
 //
 
-// Type 001 1
+// Type 001 1 //water
 
-uint8_t m05 = 0b00 001 001;
+uint8_t m04 = 0b00001001;
 //
-uint8_t m06 = 0b01 001 010;
+uint8_t m05 = 0b01001010;
 //
-uint8_t m07 = 0b10 001 100;
+uint8_t m06 = 0b10001100;
 //
-uint8_t m08 = 0b11 001 101;
+uint8_t m07 = 0b11001101;
 //
+
+
+
+
+

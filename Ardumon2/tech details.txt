@@ -9,3 +9,12 @@ atk     def     hp      speed
 stat calculation
 x^2
 
+
+
+32bit flip of moves per monster
+
+
+
+Monster:
+
+type, Id, stats, move pool
