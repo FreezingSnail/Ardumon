@@ -7,11 +7,11 @@
 int main(int argc, char** argv){
 	
 	
-	std::cout << getMoveID(m07);
+	std::cout << (int)getMoveID(m07);
 	std::cout << "\n";
 	
 	
-	std::cout << getMatchupModifier(3, 3);
+	std::cout << (int)getMatchupModifier(3, 3);
 	std::cout << "\n";
 	
 	

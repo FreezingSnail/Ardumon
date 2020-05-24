@@ -1,67 +1,70 @@
 #include "battle.h"
-#include "MoveArray.h"
-#include "TypeTable.h"
-#include "Monster.h"
 
-void loadTeams(Monster playerMons[3]){
+/*
+static void push(battleOp moveOp){
+	if(battleOpPointer == BATTLEOPSTACK){}// ded
+	else
+	{
+		battleStack[battleOpPointer] = moveOp;
+	}
+}
+*/
+
+static void resetBattleStack()
+{
+	battleOpPointer = 0;
+}
+
+void loadTeam(Monster targetTeam[3], Monster loadTeam[3]){
 	for(uint8_t i = 0; i<3; i++)
 	{
-	playerMonster[i] = playerMons[i];
-	playerHealths[i] = playerMons.[i].statlist.health;
+		targetTeam[i] = loadTeam[i];
+		
 	}
 
 
 }
 
-bool step(); player input
+static void takeDamage(MonsterPointer attacker, MonsterPointer target, uint8_t move)
+{
+	uint8_t mod = getMatchupModifier(getMoveType(moveList[move]), (target.mon->seed.monsterid >> 5) );
+	uint16_t damage = damageGeneration(attacker.mon->statlist.attack, (moveList[move] & 0b111), mod);
+	*target.currentHealth -= damageTaken(target.mon->statlist.defense, damage);
+}
+
+bool step(); //player input
 
 uint8_t getPlayerMove();
 
-void damagePhase(uint8_t playerMove, uint8_t oppMove){
-	if(currentMon->satlist.speed > oppMon->satlist.speed){ //player first
-
-		uint8_t mod = getMatchupModifier(getMoveType(moveList[playerMove]), oppMon->getType())
-		uint16_t damage = damageGeneration(currentMon->statlist.attack, (MoveList[playerMove] & 0b111), uint8_t modifier)
-
-		*oppHealth -= damageTake(oppMon->statlist.defense, damage);
-
-		mod = getMatchupModifier(getMoveType(moveList[oppMove]), playerMon->getType())
-		damage = damageGeneration(oppMon->statlist.attack, (MoveList[oppMove] & 0b111), uint8_t modifier)
-
-		*currentHealth -= damageTake(playerMon->statlist.defense, damage);
-
-
+void damagePhase(uint8_t playerMove, uint8_t oppMove)
+{
+	if(player.mon->statlist.speed > opponent.mon->statlist.speed)
+	{ //player first
+		takeDamage(player, opponent, playerMove);
+		takeDamage(opponent, player, oppMove);
 	}
-	else{ // Opp first
-
-		uint8_t mod = getMatchupModifier(getMoveType(moveList[oppMove]), playerMon->getType())
-		uint16_t damage = damageGeneration(oppMon->statlist.attack, (MoveList[oppMove] & 0b111), uint8_t modifier)
-
-		*currentHealth -= damageTake(playerMon->statlist.defense, damage);
-
-		mod = getMatchupModifier(getMoveType(moveList[playerMove]), oppMon->getType())
-		damage = damageGeneration(currentMon->statlist.attack, (MoveList[playerMove] & 0b111), uint8_t modifier)
-
-		*oppHealth -= damageTake(oppMon->statlist.defense, damage);
-
+	else
+	{ // Opp first
+		takeDamage(opponent, player, oppMove);
+		takeDamage(player, opponent, playerMove);
 	}
 }
 
 
-void battleLoop(Player player){
+void battleLoop(Player p){
 	uint8_t playerMove;
 	uint8_t oppMove;
 
-	loadTeams(player.party);
+	//loadTeam(player.party);
 
-	while(True)  //win condition check ?
+	while(true)  //win condition check ?
 	{
-		while(step());  // get players turn info
+		//while(step());  // get players turn info
 
 		//generate opponent move
 
 		//do damage calcs
-		damagePhase(uint8_t playerMove, uint8_t oppMove);
+		damagePhase( playerMove,  oppMove);
 
 
 		//check win / loose conditions

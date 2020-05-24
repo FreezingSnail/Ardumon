@@ -6,4 +6,4 @@ class Player{
 	public:
 		Monster party[3];
 
-}
+};

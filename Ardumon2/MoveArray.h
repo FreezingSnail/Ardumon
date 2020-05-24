@@ -1,19 +1,26 @@
 #pragma once
 #include "Moves.h"
-#include <stdint.h>
+#include "common.h"
 
-uint8_t MoveList[8] =	{ m00, m01, m02, m03, m04, m05, m06, m07 /*, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01 */};
+static const uint8_t moveList[8] =	{ m00, m01, m02, m03, m04, m05, m06, m07 /*, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01, m01 */};
 
-uint8_t getMoveID(uint8_t move){
+static uint8_t getMoveID(uint8_t move){
 	//move 
 	// 00    000    000    
 	// id#   type   power 
-	int x =(((4) * ((move >> 3) & 0b111)) + (move >> 6));
+	uint8_t x =(((4) * ((move >> 3) & 0b111) + (move >> 6)));
+
+	#ifdef DEBUG
+		//std::cout << "move id: " << x << std::endl;
+		std::cout << "bitset: " << std::bitset<8>((move >> 6)) << std::endl;
+		std::cout << "num: " << (move >> 6) << std::endl;
+	#endif
+
 	return x;
 }
 
 
-uint8_t getMoveType(uint8_t move){
+static uint8_t getMoveType(uint8_t move){
 
-	return (MoveList[move]>>3)& 0b111;
+	return (moveList[move]>>3)& 0b111;
 }

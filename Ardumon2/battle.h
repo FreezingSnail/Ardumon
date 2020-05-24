@@ -2,23 +2,38 @@
 #include "Calculations.h"
 #include "Monster.h"
 #include "Player.h"
-#inclde "MoveArray.h"
+#include "TypeTable.h"
+#include "MoveArray.h"
 
-Monster playerMonster[3];
-Monster opponentMonster[3];
+#define BATTLEOPSTACK 2
+
+
+typedef struct battleCommand{
+    uint8_t move;
+} battleOp;
+
+typedef struct mon{
+    Monster * mon;
+    uint16_t * currentHealth;
+} MonsterPointer;
+
+battleOp battleStack[BATTLEOPSTACK];
+uint8_t battleOpPointer;
+
+Monster playerTeam[3];
+Monster opponentTeam[3];
 
 uint16_t playerHealths[3];
 uint16_t opponentHealths[3];
 
-Monster * currentMon;
-Monster * oppMon;
-uint16_t * currentHealth;
-uint16_t * oppHealth;
+
+MonsterPointer player;
+MonsterPointer opponent;
 
 
 void loadOpponent();
 
-void loadTeams(Monster playerMons[3]);
+void loadTeam(Monster targetTeam[3], Monster loadTeam[3]);
 
 bool step(); //increments loop
 

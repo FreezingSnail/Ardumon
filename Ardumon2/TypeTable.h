@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include "common.h"
 
 typedef enum class Types{
 	plain,
@@ -53,7 +54,7 @@ typedef enum class Types{
 	{4,2,2,2,0,2,2,4}
 };
 */
-uint8_t typeTable[8][4] = 
+static const uint8_t typeTable[8][4] = 
 {
 	{0b1010, 0b1010, 0b1010, 0b1010},
 	{0b0110, 0b1011, 0b1110, 0b0001},
@@ -67,9 +68,10 @@ uint8_t typeTable[8][4] =
 
 
 
-int getMatchupModifier(uint8_t AttackT, uint8_t defType){
+static uint8_t getMatchupModifier(uint8_t AttackT, uint8_t defType){
 
-	int mod = typeTable[AttackT][defType/2];
+	uint8_t mod = typeTable[AttackT][(defType/2)];
+
 	if(defType%2 == 0)
 		return (mod >> 2);
 	else
