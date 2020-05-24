@@ -1,6 +1,17 @@
 #pragma once
 #include <stdint.h>
 
+typedef enum class Types{
+	plain,
+	water,
+	wind,
+	earth,
+	fire,
+	lightning,
+	plant,
+	elder,
+}Type_t;
+
 /*************
 /	8x8 array
 /
@@ -54,10 +65,12 @@ uint8_t typeTable[8][4] =
 	{0b1110, 0b1010, 0b0010, 0b1011}
 };
 
-int getMatchupModifier(uint8_t moveType1, uint8_t moveType2){
 
-	int mod = typeTable[moveType1][moveType2/2];
-	if(moveType2%2 == 0)
+
+int getMatchupModifier(uint8_t AttackT, uint8_t defType){
+
+	int mod = typeTable[AttackT][defType/2];
+	if(defType%2 == 0)
 		return (mod >> 2);
 	else
 	{

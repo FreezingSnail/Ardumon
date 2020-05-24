@@ -21,7 +21,7 @@ typedef struct stats{
 
 class Monster{
 
-	private:
+	public:
 			const monsterSeed_t seed;
 			uint32_t moveList;
 
@@ -30,10 +30,11 @@ class Monster{
 			uint8_t level;
 
 			Monster(uint8_t move[], monsterSeed_t seed, movelist):moves{move[0],move[1],move[2],move[3]}, seed(seed), moveList(movelist);
-
+			uint8_t getType(); //seed.monsterid >>5 
 			void changeMove(uint8_t slot, uint8_t newMove);
+			uint8_t getMove(uint8_t slot);
 
 }
 
 
-uint32_t movelist0 = 0b00000000000000000000000000000000;
+
