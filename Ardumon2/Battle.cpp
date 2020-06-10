@@ -29,6 +29,11 @@ static void takeDamage(MonsterPointer attacker, MonsterPointer target, uint8_t m
 {
 	uint8_t mod = getMatchupModifier(getMoveType(moveList[move]), (target.mon->seed.monsterid >> 5) );
 	uint16_t damage = damageGeneration(attacker.mon->statlist.attack, (moveList[move] & 0b111), mod);
+	
+	#ifdef DEBUG
+		std::cout << "damege taken: " << (int)damageTaken(target.mon->statlist.defense, damage) << std::endl;	
+	#endif
+	
 	*target.currentHealth -= damageTaken(target.mon->statlist.defense, damage);
 }
 
