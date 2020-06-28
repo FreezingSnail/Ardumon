@@ -4,6 +4,7 @@
 #include "Moves.h"
 #include "TypeTable.h"
 #include "Calculations.h"
+#include "mapGenerator.h"
 
 
 int main(int argc, char** argv){
@@ -16,10 +17,9 @@ int main(int argc, char** argv){
 
 	printf("%d\n",sizeof(test));
 
-	struct Test smol;
 
-	printf("%d\n",sizeof(smol));
-	
-	
+
+	decode(testmap);
+
 	
 }

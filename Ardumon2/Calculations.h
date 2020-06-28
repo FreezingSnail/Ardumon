@@ -14,3 +14,6 @@ static uint16_t damageTaken(uint8_t defStat, uint16_t damage){
 	return (damage/defStat);
 }
 
+static uint8_t getBit(int num, int bit){
+	return (num >> bit) & 1;
+}

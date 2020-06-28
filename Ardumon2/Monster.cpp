@@ -1,4 +1,5 @@
 #include "Monster.h"
+#include "common.h"
 #include "Calculations.h"
 
 Monster::Monster()
@@ -15,8 +16,29 @@ Monster::Monster(monsterSeed_t seed)
 }
 
 void Monster::setStats(){
-    this->statlist.attack   = statCalc( (this->seed.atk), this->level);
-    this->statlist.defense  = statCalc( (this->seed.def), this->level);
-    this->statlist.health   = statCalc( (this->seed.hp),  this->level);
-    this->statlist.speed    = statCalc( (this->seed.spd), this->level);
+    this->statlist.attack   = statCalc( (getAtkStatSeed()), getLevel());
+    this->statlist.defense  = statCalc( (getDefStatSeed()), getLevel());
+    this->statlist.health   = statCalc( (getHpStatSeed()),  getLevel());
+    this->statlist.speed    = statCalc( (getSpdStatSeed()), getLevel());
+}
+
+//(this->seed.atk), this->level);
+uint8_t Monster::getLevel(){
+    return this->level;
+}
+uint8_t Monster::getAtkStatSeed(){
+    return (((this->seed.statSeed >> 12) & 0b1111), this->level);
+}
+uint8_t Monster::getDefStatSeed(){
+    return (((this->seed.statSeed >> 8)  & 0b1111), this->level);
+}
+uint8_t Monster::getHpStatSeed(){
+    return (((this->seed.statSeed >> 4)  & 0b1111), this->level);
+}
+uint8_t Monster::getSpdStatSeed(){
+    return (((this->seed.statSeed )      & 0b1111), this->level);
+}
+
+void Monster::printStats(){
+
 }

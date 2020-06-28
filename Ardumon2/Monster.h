@@ -6,10 +6,8 @@ typedef struct monsterSeed{
         uint8_t monsterid;			//000     00000
 										//type    monster id
 
-		uint8_t	atk;
-		uint8_t	def;
-		uint8_t hp;
-		uint8_t spd;
+		uint16_t statSeed;			// 0000		0000	0000	0000
+									// atk		def		hp		spd
 
         uint8_t movelist;			//32 binary flips
 }monsterSeed_t;
@@ -38,6 +36,14 @@ class Monster{
 			void changeMove(uint8_t slot, uint8_t newMove);
 			void setStats();
 			uint8_t getMove(uint8_t slot);
+			uint8_t getLevel();
+			uint8_t getAtkStatSeed();
+			uint8_t getDefStatSeed();
+			uint8_t getHpStatSeed();
+			uint8_t getSpdStatSeed();
+
+			void printStats();
+
 
 };
 
