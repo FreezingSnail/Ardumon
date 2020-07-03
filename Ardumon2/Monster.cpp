@@ -1,6 +1,6 @@
 #include "Monster.h"
 #include "common.h"
-#include "Calculations.h"
+#include "calculations.h"
 
 Monster::Monster()
 {

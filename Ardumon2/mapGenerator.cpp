@@ -1,5 +1,5 @@
 #include "mapGenerator.h"
-#include "Calculations.h"
+#include "calculations.h"
 
 
 

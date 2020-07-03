@@ -3,7 +3,7 @@
 #include "Monster.h"
 #include "Moves.h"
 #include "TypeTable.h"
-#include "Calculations.h"
+#include "calculations.h"
 #include "mapGenerator.h"
 
 
@@ -19,7 +19,7 @@ int main(int argc, char** argv){
 
 
 
-	decode(testmap);
+
 
 	
 }

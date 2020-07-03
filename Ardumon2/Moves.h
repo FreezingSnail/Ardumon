@@ -23,6 +23,9 @@
 
 static const  uint32_t movelist0 = 0b00000000000000000000000000000000;
 
+
+//Should prob make a function to generate this instead of saving them all
+
 ///////////////////////////////////////////////////////
 //              Moves                               //
 //////////////////////////////////////////////////////
@@ -31,7 +34,7 @@ static const  uint32_t movelist0 = 0b00000000000000000000000000000000;
 
 // Type 000 0 //plain
 
-static const uint8_t m00 = 0b00000001;
+static const  uint8_t m00 = 0b00000001;
 //
 static const  uint8_t m01 = 0b01000010;
 //

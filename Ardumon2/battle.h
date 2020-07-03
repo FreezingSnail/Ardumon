@@ -1,7 +1,7 @@
 #pragma once
-#include "Calculations.h"
+#include "calculations.h"
 #include "Monster.h"
-#include "Player.h"
+#include "player.h"
 #include "TypeTable.h"
 #include "MoveArray.h"
 

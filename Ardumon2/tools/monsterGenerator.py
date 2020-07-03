@@ -1,11 +1,11 @@
 import csv
-
+#cat this to a file lol
 print("#pragma once")
 
 with open('data/monstersheet', newline='') as csvfile:
     reader = csv.DictReader(csvfile, delimiter='\t', quotechar='|')
     for row in reader:
-        print("static monsterSeed_t mon",row['id'], ' = { ', sep='',end ='')
+        print("static cosnt monsterSeed_t mon",row['id'], ' = { ', sep='',end ='')
         print('0b', end ='')
         print(bin(int(row['type']))[2:].zfill(3), end ='')
         print(bin(int(row['id']))[2:].zfill(5), end =', ')
