@@ -1,6 +1,14 @@
 #pragma once
 #include "common.h"
 #include "team.h"
+#include "TypeTable.h"
+
+typedef struct oppSeed{
+    uint32_t mon1;
+    uint32_t mon2;
+    uint32_t mon3;
+
+}oppSeed_t;
 
 
 ///opponent seed 
@@ -10,6 +18,9 @@
    move1 move2 move3 move4  x3
 /  00000 00000 00000 00000               60 bits
 
+/ format
+/ monId lvl mov1 mov2 mov3 mov4 x3, 3 32bit ints
+
     3 32 bit ints to store opponent seeds
 */
 class Opponent{
@@ -17,5 +28,8 @@ class Opponent{
     public:
         team_t team;
 
-        Opponnent();
+        Opponnent(oppSeed_t seed);
+        void decompOppSeed(oppSeed_t seed); //load opponent
+        Type_t getAdvantage(Type_t opponent, Type_t player);  //finds best advantage
+
 };

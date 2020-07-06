@@ -1,4 +1,5 @@
 #pragma once
+/*
 #include "calculations.h"
 #include "Monster.h"
 #include "player.h"
@@ -42,3 +43,4 @@ uint8_t getPlayerMove();
 void battleLoop(Player player);  //main loop
 
 void damagePhase(uint8_t playerMove, uint8_t oppMove);
+*/

@@ -25,7 +25,7 @@ class BattleEngine{
         //not sure what need as inputs, presumable a player and some other info on the generated opponent
         //prob dont actually need to do that in the constructor
 
-        void loadTeams(Player player); //inputs here probably
+        void loadTeams(Player * player); //inputs here probably
         void battleLoop();
 
 };

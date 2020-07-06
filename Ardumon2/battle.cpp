@@ -1,5 +1,6 @@
 #include "battle.h"
 
+
 /*
 static void push(battleOp moveOp){
 	if(battleOpPointer == BATTLEOPSTACK){}// ded
@@ -8,7 +9,7 @@ static void push(battleOp moveOp){
 		battleStack[battleOpPointer] = moveOp;
 	}
 }
-*/
+
 
 static void resetBattleStack()
 {
@@ -76,3 +77,4 @@ void battleLoop(Player p){
 
 	}
 }
+*/

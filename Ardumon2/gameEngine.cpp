@@ -1,5 +1,5 @@
 #include "gameEngine.h"
-
+#include "battleEngine.h"
 
 void GameEngine::gameLoop(){
 
@@ -13,7 +13,7 @@ void GameEngine::gameLoop(){
             break;
         }
         case GameState::BATTLE:{
-
+            battle();
             break;
         }
         default:
@@ -21,4 +21,9 @@ void GameEngine::gameLoop(){
             break;
     }
 
+}
+
+void GameEngine::battle(){
+   // this->battleEngine->loadTeams(this->player);
+    //this->battleEngine->battleLoop();
 }
