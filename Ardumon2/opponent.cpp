@@ -24,8 +24,7 @@ void Opponent::decompOppSeed(oppSeed_t seed){
 
 }
 
-Opponent::Opponent(oppSeed_t seed){
+Opponent::Opponent( ){
 
-    
 
 }

@@ -28,7 +28,7 @@ class Opponent{
     public:
         team_t team;
 
-        Opponnent(oppSeed_t seed);
+        Opponent();
         void decompOppSeed(oppSeed_t seed); //load opponent
         Type_t getAdvantage(Type_t opponent, Type_t player);  //finds best advantage
 

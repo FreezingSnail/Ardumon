@@ -1,4 +1,4 @@
-#include "gameEngine.h"
+#include "GameEngine.h"
 #include "battleEngine.h"
 
 void GameEngine::gameLoop(){
