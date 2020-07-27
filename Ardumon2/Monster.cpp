@@ -1,6 +1,9 @@
 #include "Monster.h"
 #include "common.h"
 #include "calculations.h"
+#include "TypeTable.h"
+
+
 
 Monster::Monster()
 {
@@ -12,6 +15,7 @@ Monster::Monster(monsterSeed_t seed)
 {
     this->seed = seed;
     this->level = 5;
+    this->type = (seed.monsterid >> 5);
     setStats();
 }
 
@@ -20,6 +24,11 @@ void Monster::setStats(){
     this->statlist.defense  = statCalc( (getDefStatSeed()), getLevel());
     this->statlist.health   = statCalc( (getHpStatSeed()),  getLevel());
     this->statlist.speed    = statCalc( (getSpdStatSeed()), getLevel());
+}
+
+Type_t getAdvantage(Type_t opponent){
+
+    return Type_t::plain;
 }
 
 //(this->seed.atk), this->level);

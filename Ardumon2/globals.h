@@ -4,7 +4,7 @@
 #include "battleEngine.h"
 #include "opponent.h"
 
-Player player;
-extern Opponent opponent;
-extern GameEngine gameEngine;
-extern BattleEngine battleEngine;
+ Player player;
+ Opponent opponent;
+ GameEngine gameEngine;
+ BattleEngine battleEngine(&player, &opponent);

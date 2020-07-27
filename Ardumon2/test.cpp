@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include "MoveArray.h"
 #include "Monster.h"
 #include "Moves.h"
@@ -6,18 +7,17 @@
 #include "calculations.h"
 #include "mapGenerator.h"
 #include "globals.h"
+#include "opponent.h"
+#include "tools/opponentsData.h"
+
+
 
 extern Player player;
 #include "tools/monsters.h"
 
 
-int main(int argc, char** argv){
+int main(){
 	
-	Monster testMon = Monster(monsterData[0]);
-	//testMon.printStats();
-
-	player.loadMonster(0, testMon);
-	player.printPlayer();
-
+	printf("%d\n", getMatchupModifier(1,7));
 	
 }

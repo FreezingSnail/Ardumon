@@ -27,3 +27,5 @@ void GameEngine::battle(){
    // this->battleEngine->loadTeams(this->player);
     //this->battleEngine->battleLoop();
 }
+
+GameEngine::GameEngine(){}

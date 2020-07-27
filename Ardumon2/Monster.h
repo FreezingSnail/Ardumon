@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "TypeTable.h"
 
 typedef struct monsterSeed{
 
@@ -24,8 +25,8 @@ class Monster{
 	public:
 			monsterSeed_t seed;
 			uint8_t level;
-
-			 uint8_t moves[4];
+			uint8_t type;
+			uint8_t moves[4];
 			stats_t statlist;
 
 			Monster();
@@ -35,6 +36,10 @@ class Monster{
 			uint8_t getType(); //seed.monsterid >>5 
 			void changeMove(uint8_t slot, uint8_t newMove);
 			void setStats();
+
+			Type_t getAdvantage(Type_t opponent);  //finds best advantage
+
+
 			uint8_t getMove(uint8_t slot);
 			uint8_t getLevel();
 			uint8_t getAtkStatSeed();

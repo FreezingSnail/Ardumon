@@ -1,4 +1,5 @@
 #pragma once
+#include "player.h"
 #include "common.h"
 #include "team.h"
 #include "TypeTable.h"
@@ -23,13 +24,14 @@ typedef struct oppSeed{
 
     3 32 bit ints to store opponent seeds
 */
-class Opponent{
+class Opponent: public Player{
 
     public:
-        team_t team;
-
+        
         Opponent();
+        Opponent(oppSeed_t seed);
         void decompOppSeed(oppSeed_t seed); //load opponent
-        Type_t getAdvantage(Type_t opponent, Type_t player);  //finds best advantage
+        
+
 
 };
