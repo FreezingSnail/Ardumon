@@ -13,6 +13,9 @@ void BattleEngine::loadTeams(oppSeed_t oppSeed){
     this->playerTeam = this->player->team;
     this->opponent->decompOppSeed(oppSeed);
     this->opponentTeam = this->opponent->team;
+
+    this->playerTeam.currentMonster = 0;
+    this->opponentTeam.currentMonster = 0;
 }
 
 bool BattleEngine::winBattleCheck(team_t team){
@@ -59,6 +62,7 @@ void BattleEngine::battleLoop(){
         //while(step());  // get players turn info
 
 		//generate opponent move
+        uint8_t opponentMove = getCurrentMon(this->opponentTeam).getAdvantage((Type_t)getCurrentMon(this->playerTeam).getType());
 
 		//do damage calcs
 		//damagePhase( playerMove,  oppMove);

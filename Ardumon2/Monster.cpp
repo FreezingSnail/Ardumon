@@ -26,11 +26,33 @@ void Monster::setStats(){
     this->statlist.speed    = statCalc( (getSpdStatSeed()), getLevel());
 }
 
-Type_t getAdvantage(Type_t opponent){
+uint8_t Monster::getAdvantage(Type_t opponent){
+    uint8_t oppType = (uint8_t)opponent;
+    uint8_t mod = 0;
+    uint8_t moveNum = 0;
+    for(int i = 0; i < 4; i++){ // check moves for the best mathup
+    //remeber mod 3 is x .5
+        uint8_t matchup = getMatchupModifier(this->moves[i], oppType);
+        if(matchup > mod){
+            if(matchup == 3 && mod == 0){
+                moveNum = i;
+                //hold onto this number incase this all other options are 0
+            }
+            else if (matchup != 3){
+                mod = matchup;
+                moveNum = i;
+            }
+        }
 
-    return Type_t::plain;
+        return moveNum;
+
+    }
+
+    return 0;
 }
-
+uint8_t Monster::getType(){
+    return this->type;
+}
 //(this->seed.atk), this->level);
 uint8_t Monster::getLevel(){
     return this->level;

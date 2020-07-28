@@ -9,6 +9,9 @@ typedef struct team{
     uint8_t currentMonster; //0-2
 } team_t;
 
+static Monster getCurrentMon(team_t team){
+    return team.teamList[team.currentMonster];
+}
 
 static void printTeam(team_t * team){
     printf("Current: %d\n", team->currentMonster);

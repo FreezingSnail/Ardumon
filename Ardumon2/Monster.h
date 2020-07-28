@@ -37,7 +37,7 @@ class Monster{
 			void changeMove(uint8_t slot, uint8_t newMove);
 			void setStats();
 
-			Type_t getAdvantage(Type_t opponent);  //finds best advantage
+			uint8_t getAdvantage(Type_t opponent);  //finds best advantage
 
 
 			uint8_t getMove(uint8_t slot);

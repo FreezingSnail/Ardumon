@@ -18,6 +18,6 @@ extern Player player;
 
 int main(){
 	
-	printf("%d\n", getMatchupModifier(1,7));
+	printf("%d\n", getMatchupModifier(7,7));
 	
 }
